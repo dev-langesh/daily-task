@@ -9,7 +9,7 @@ export default function Motivation() {
   }, []);
 
   return (
-    <section className=" text-center  p-4 shadow shadow-orange-100">
+    <section className=" text-center  p-4 shadow shadow-orange-100 bg-white">
       {moto}
     </section>
   );
