@@ -15,8 +15,11 @@
     "@mui/material": "^5.6.2",
     "@reduxjs/toolkit": "^1.8.1",
     "axios": "^0.26.1",
+<<<<<<< HEAD
     "bcrypt": "^5.0.1",
     "jsonwebtoken": "^8.5.1",
+=======
+>>>>>>> ab2cb83973c3bcdfb047bfa8281c176f7022622c
     "mongoose": "^6.3.0",
     "next": "12.1.5",
     "react": "18.0.0",

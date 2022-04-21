@@ -5,7 +5,7 @@ import styles from "../styles/Home.module.css";
 import CreateTodo from "../components/CreateTodo";
 import axios from "axios";
 import mongoose from "mongoose";
-import DisplayTodo from "../components/DisplayTodo";
+import DisplayTodo from '../components/DisplayTodo';
 
 const Home = ({ hour }: { hour: number }) => {
   return (

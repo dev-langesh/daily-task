@@ -18,7 +18,11 @@ export default function Greeting() {
   }, [date]);
 
   return (
+<<<<<<< HEAD
     <header className="p-2 text-center  shadow shadow-orange-100 mb-2">
+=======
+    <header className="p-2 text-center bg-white  shadow shadow-orange-100 mb-2">
+>>>>>>> ab2cb83973c3bcdfb047bfa8281c176f7022622c
       {greet} Dever
     </header>
   );
