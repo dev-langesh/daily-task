@@ -3,6 +3,8 @@ on: [push]
 jobs:
   if-Windows-else:
     runs-on: macos-latest
+    env:
+      RUNNER_OS: runner.os
     steps:
       - name: condition 1
         if: runner.os == 'Windows'
