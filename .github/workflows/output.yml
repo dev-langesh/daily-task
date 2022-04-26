@@ -1,17 +1,21 @@
-name: build
-on: push
+name: data-sharing-bw-jobs
+on: [push]
 jobs:
   job1:
     runs-on: ubuntu-latest
     outputs:
-      matrix: ${{ steps.set-matrix.outputs.matrix }}
+      text: ${{steps.a.outputs.text}}
     steps:
-      - id: set-matrix
-        run: echo "::set-output name=matrix::{\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}"
+      - name: job1
+        id: a
+        run: echo "::set-output name=text::msg from first job"
+
   job2:
-    needs: job1
     runs-on: ubuntu-latest
-    strategy:
-      matrix: ${{fromJSON(needs.job1.outputs.matrix)}}
+    needs: job1
+    env:
+      text: ${{needs.job1.outputs.text}}
+
     steps:
-      - run: echo ${{fromJSON(needs.job1.outputs.matrix)}}
+      - name: job2
+        run: echo $text
