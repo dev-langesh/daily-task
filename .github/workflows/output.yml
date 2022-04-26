@@ -4,18 +4,14 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     outputs:
-      text: ${{steps.a.outputs.text}}
+      text: ${{steps.nameid.outputs.msg}}
     steps:
-      - name: job1
-        id: a
-        run: echo "::set-output name=text::msg from first job"
-
+      - name: generating output
+        id: nameid
+        run: echo "::set-output name=msg::msg from first job"
   job2:
     runs-on: ubuntu-latest
     needs: job1
-    env:
-      text: ${{needs.job1.outputs.text}}
-
     steps:
-      - name: job2
-        run: echo $text
+      - name: "displaying output"
+        run: echo ${{needs.job1.outputs.text}}
