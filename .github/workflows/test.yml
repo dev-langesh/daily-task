@@ -7,7 +7,7 @@ jobs:
       matrix:
         node-version: ["16"]
     env:
-      os: Linux
+      os: runner.os
     steps:
       - name: checkout
         uses: actions/checkout@v3
@@ -15,7 +15,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{matrix.node-version}}
-      - run: npm i -g bats
-      - run: bats -v
       - name: "checking os"
-        run: echo ${{env.os}}
+        if: ${{env.os === Linux}}
+        run: echo "You are in linux image"
