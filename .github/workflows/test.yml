@@ -1,0 +1,17 @@
+name: "hello"
+on: [push]
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: ["12", "14", "16"]
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: setting node env
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{matrix.node-version}}
+      - run: npm i -g bats
+      - run: bats -v
