@@ -27,5 +27,4 @@ jobs:
         with:
           node-version: ${{matrix.node-version}}
       - name: "checking os"
-        if: env.os == 'Linux'
-        run: echo "You are in linux image"
+        run: echo "You are on $os"
