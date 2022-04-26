@@ -1,0 +1,16 @@
+name: output
+on: [push]
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    outputs:
+      uname: ${{steps.nameid.outputs.name}}
+    steps:
+      - name: set-name
+        id: nameid
+        run: echo '::set-output name=uname::langesh'
+  job2:
+    runs-on: ubuntu-latest
+    needs: job1
+    steps:
+      - run: echo ${{needs.job1.outputs.uname}}
