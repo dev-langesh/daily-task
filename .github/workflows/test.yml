@@ -18,7 +18,7 @@ jobs:
       matrix:
         node-version: ["16"]
     env:
-      os: runner.os
+      RUNNER_OS: runner.os
     steps:
       - name: checkout
         uses: actions/checkout@v3
@@ -27,4 +27,4 @@ jobs:
         with:
           node-version: ${{matrix.node-version}}
       - name: "checking os"
-        run: echo "You are on $os"
+        run: echo "You are on $RUNNER_OS"
