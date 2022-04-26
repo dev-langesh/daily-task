@@ -6,6 +6,8 @@ jobs:
     strategy:
       matrix:
         node-version: ["12", "14", "16"]
+    env:
+      os: runner.os
     steps:
       - name: checkout
         uses: actions/checkout@v3
@@ -15,3 +17,5 @@ jobs:
           node-version: ${{matrix.node-version}}
       - run: npm i -g bats
       - run: bats -v
+      - name: "checking os"
+        run: $os
